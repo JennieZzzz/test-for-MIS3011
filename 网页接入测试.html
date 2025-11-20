@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify Chatbot Integration Demo</title>
+    
+    <!-- 引入 Tailwind CSS 用于简单的页面美化 (可选) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 你的自定义样式 -->
+    <style>
+        /* 覆盖 Dify 默认样式 */
+        #dify-chatbot-bubble-button {
+            background-color: #1C64F2 !important; /* 自定义按钮颜色 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        #dify-chatbot-bubble-window {
+            width: 24rem !important; /* 自定义窗口宽度 */
+            height: 40rem !important; /* 自定义窗口高度 */
+            max-height: 80vh !important; /* 确保在小屏幕上不溢出 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center text-slate-800 font-sans">
+
+    <!-- 页面主体内容 -->
+    <div class="max-w-3xl mx-auto p-8 text-center space-y-6">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48H40A16,16,0,0,0,24,64V224a15.84,15.84,0,0,0,9.25,14.5A16.05,16.05,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78L88.94,200H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM40,224V64H216V184H88.94a16,16,0,0,0-10.25,3.78L40,218.73ZM80,112a12,12,0,1,1,12,12A12,12,0,0,1,80,112Zm48,0a12,12,0,1,1,12,12A12,12,0,0,1,128,112Zm48,0a12,12,0,1,1,12,12A12,12,0,0,1,176,112Z"></path></svg>
+            </div>
+            <h1 class="text-3xl font-bold mb-2">Dify Chatbot 已集成</h1>
+            <p class="text-gray-500 mb-8">请查看页面右下角的蓝色悬浮按钮进行对话。</p>
+            
+            <div class="text-left bg-gray-900 text-gray-200 p-4 rounded-lg text-sm font-mono overflow-x-auto">
+                <p class="text-gray-400">// 当前配置 Token</p>
+                <p>token: 'G6EdM1k6Mrm0VcUj'</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dify Chatbot 配置脚本 -->
+    <script>
+        window.difyChatbotConfig = {
+            token: 'G6EdM1k6Mrm0VcUj',
+            inputs: {
+                // 在这里定义 Start 节点的输入变量
+                // 键名是变量名
+                // 例如:
+                // name: "User"
+            },
+            systemVariables: {
+                // user_id: '可以在这里定义用户ID',
+                // conversation_id: '可以在这里定义会话ID (必须是有效的 UUID)',
+            },
+            userVariables: {
+                // avatar_url: '可以在这里定义用户头像 URL',
+                // name: '可以在这里定义用户昵称',
+            },
+        }
+    </script>
+
+    <!-- Dify Chatbot 嵌入脚本 -->
+    <script
+        src="https://udify.app/embed.min.js"
+        id="G6EdM1k6Mrm0VcUj"
+        defer>
+    </script>
+
+</body>
+</html>
+
+
+
